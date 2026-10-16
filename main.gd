@@ -1,0 +1,20 @@
+extends Node2D
+
+func _init() -> void:
+	pass
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	print_debug("Game Started")
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	if(Input.is_action_just_pressed("Shoot")) : print_debug("Shooted")
+	if(Input.is_action_just_pressed("Up")) : print_debug("Going Up")
+	if(Input.is_action_just_pressed("Down")) : print_debug("Going Down")
+	if(Input.is_action_just_pressed("Left")) : print_debug("Going Left")
+	if(Input.is_action_just_pressed("Right")) : print_debug("Going Right")
+	pass
+
+func _physics_process(delta: float) -> void:
+	pass
