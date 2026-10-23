@@ -1,6 +1,14 @@
 [gd_scene format=3 uid="uid://dqfuxh4nf4kh7"]
 
 [ext_resource type="Script" uid="uid://doxt4u1y575uk" path="res://main.gd" id="1_glv2v"]
+[ext_resource type="PackedScene" uid="uid://bxxsw4acb4tna" path="res://Ship.tscn" id="2_uu6xs"]
+[ext_resource type="PackedScene" uid="uid://s70eyw8whjw6" path="res://Asteroid.tscn" id="3_r0du0"]
 
 [node name="Main" type="Node2D" unique_id=1341128185]
 script = ExtResource("1_glv2v")
+
+[node name="Ship" parent="." unique_id=42707303 instance=ExtResource("2_uu6xs")]
+position = Vector2(466, 252)
+
+[node name="Asteroid" parent="." unique_id=664207926 instance=ExtResource("3_r0du0")]
+position = Vector2(225, 363)
