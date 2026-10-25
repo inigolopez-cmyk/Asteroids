@@ -6,6 +6,7 @@ class_name Ship extends RigidBody2D
 @export var bullet : PackedScene
 @export var pivot : Node2D
 
+@onready var _screen_size = get_viewport_rect().size
 
 func _init() -> void:
 	pass
@@ -35,4 +36,15 @@ func _shoot() -> void:
 	get_parent().add_child(_bullet_object)
 	_bullet_object.global_position = pivot.global_position
 	(_bullet_object as Bullet).linear_velocity = Vector2.UP * 100
+	pass
+	
+func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
+	_screen_wrap(state)
+	pass
+
+func _screen_wrap(state: PhysicsDirectBodyState2D) -> void:
+	var position : Vector2 = state.transform.origin
+	position.x = wrapf(position.x, 0.0, _screen_size.x)
+	position.y = wrapf(position.y, 0.0, _screen_size.y)
+	state.transform.origin = position
 	pass
